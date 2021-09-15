@@ -8,6 +8,7 @@ import "@chainlink/contracts/src/v0.6/vendor/SafeMathChainlink.sol";
 contract FundMe {
     using SafeMathChainlink for uint256;
 
+    //Can be replaced with OpenZepplin owner library
     address public owner;
     mapping(address => uint256) public addressToFundAmount;
     address[] public funders;
@@ -23,6 +24,7 @@ contract FundMe {
     function fund() public payable {
         require(getConversionRate((msg.value)) >= entranceFee, "Send more ETH");
 
+        //stop duplicates in funders - all storage counts!
         if (addressToFundAmount[msg.sender] == 0) {
             funders.push(msg.sender);
         }

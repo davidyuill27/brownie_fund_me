@@ -1,7 +1,7 @@
 from scripts.utils import LOCAL_BLOCKCHAIN_ENVINROMENTS, get_account, deployMocks
 from brownie import accounts, network, config, FundMe, MockV3Aggregator
 
-
+# Basic deploy script for FundMe.sol
 def deploy_fund_me():
     account = get_account()
     print(f"active network is: " + network.show_active())

@@ -8,7 +8,7 @@ STARTING_PRICE = 20000000000000
 FORKED_LOCAL_ENVIRONMENTS = ["mainnet-fork"]
 LOCAL_BLOCKCHAIN_ENVINROMENTS = ["development", "ganache-local"]
 
-
+# Util function to get account depending on network used
 def get_account():
     if (
         network.show_active() in LOCAL_BLOCKCHAIN_ENVINROMENTS
@@ -19,6 +19,7 @@ def get_account():
         return accounts.load("brownie")
 
 
+# Deploys mocks (if not already)
 def deployMocks():
     print("Deploying Mocks if needed...")
     if len(MockV3Aggregator) <= 0:
